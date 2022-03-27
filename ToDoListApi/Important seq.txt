@@ -1,0 +1,4 @@
+Web Layer : 컨트롤러와 JSP/Freemaker 등의 뷰 템플릿이고, 외부 요청과 응답에 대한 전반적인 영역
+Service Layer : 서비스 영역. Controller와 Dao의 중간 영역이며, @Transactional 이 사용되는 영역.
+Repository Layer : DB에 직접 접근하는 영역. Persistence Layer이고, Service와 DB를 연결하는 고리 역할을 함. DAO 라고도 부름.
+DTO(Data Transfer Object) : 계층 간의 데이터를 교환하기 위한 객체. 예로 뷰 템플릿 엔진에서 사용될 객체나 Repository Layer에서 결과로 넘겨준 객체
