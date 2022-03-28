@@ -24,6 +24,7 @@ dependencies {
     runtimeOnly 'com.h2database:h2'
     implementation 'javax.servlet:jstl'
     implementation 'org.apache.tomcat.embed:tomcat-embed-jasper'
+    compileOnly('org.springframework.boot:spring-boot-starter-mustache')
 
 }
 

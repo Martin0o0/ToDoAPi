@@ -2,9 +2,9 @@ package com.example.todolistapi;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 
-import java.util.LinkedList;
-
+@EnableJpaAuditing //Auditiong 설정해주자.
 @SpringBootApplication
 public class TodoListApiApplication {
 

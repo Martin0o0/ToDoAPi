@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>To do List</title>
+
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <style>
+    </style>
+</head>
+<body>
+<div class="container">
+    <header>
+        <a href="/" class="align-items-center text-dark text-decoration-none">
+            <span class="fs-4"><h1 class="text-primary text-center">ToDoList</h1></span>
+        </a>
+        <hr>
+    </header>
+    <div class="col-md-12">
+        <br>
+        <table class="table table-horizontal table-bordered">
+            <thread class="thread-string">
+                <tr>
+                    <th>게시글번호</th>
+                    <th>제목</th>
+                    <th>할 내용</th>
+                    <th>시작시간</th>
+                    <th>총 소요시간</th>
+                    <th>최종 등록시간</th>
+                </tr>
+            </thread>
+            <tbody id="tbody">
+            {{#posts}}
+                <tr>
+                    <td>{{No}}</td>
+                    <td>{{title}}</td>
+                    <td>{{whatToDo}}</td>
+                    <td>{{whenToDo}}</td>
+                    <td>{{howLongToDo}}</td>
+                    <td>{{ModityTime}}</td>
+                </tr>
+            {{/posts}}
+            </tbody>
+
+        </table>
+    </div>
+
+
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="/js/bootstrap.js"></script>
+<script src="/js/List.js"></script>
+
+
+</body>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>To do List</title>
+
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <style>
+        body {
+            margin-top: 20px;
+            margin-bottom: 30px;
+        }
+
+        header {
+            margin-bottom: 50px;
+        }
+
+    </style>
+</head>
+<body>
+<div class="container">
+    <header>
+        <a href="/" class="align-items-center text-dark text-decoration-none">
+            <span class="fs-4"><h1 class="text-primary text-center">ToDoList</h1></span>
+        </a>
+        <hr>
+    </header>
+    <div class="jumbotron">
+        <div class="container" >
+            <h1>목표를 위한 한걸음.</h1>
+            <p>목표를 위해 나아가세요.</p>
+            <blockquote>
+                The only easy day was yesterday.
+                <small>The Navy Seal</small>
+            </blockquote>
+            <p><a class="btn btn-primary btn-lg" href="/todolist">Go to List</a></p>
+        </div>
+    </div>
+    <hr>
+    <h2 class="text-center text-info">당신의 열정을 보여주세요. </h2>
+    <hr>
+    <div class="panel panel-default">
+        <div class="panel-heading"><h3 class="text-left text-danger"><strong><i>계획을 한번 세워볼까요?</i></strong></h3></div>
+        </br>
+        <form class="form-horizontal" role="form">
+            <fieldset>
+                <legend><h3 class="text-center text-info">무엇을 하실껀가요?</h3> </legend>
+                <div class="form-group">
+                    <label for="doingtitle" class="col-xs-2 col-lg-2 control-label">제목</label>
+                    <div class="col-xs-8 col-lg-8">
+                        <input type="text" id="title" class="form-control" placeholder="대략적인 제목을 달아주세요.(10자 이내)">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="doinginfo" class="col-xs-2 col-lg-2 control-label">구체적인 내용</label>
+                    <div class="col-xs-8 col-lg-8">
+                        <textarea  rows="5" id="whatToDo" class="form-control" placeholder="뭘 하실것인지 구체적으로 적어주세요.(50자 이내)"></textarea>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <lebel for="whentodo" class="col-xs-2 col-lg-2 control-label"><strong>시작 시간</strong></lebel>
+                    <div class="col-xs-4 col-lg-4">
+                        <input type="time" id="whenToDo" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="howlongtodo" class="col-xs-2 col-lg-2 control-label">예상 소요 시간</label>
+                    <div class="col-xs-4 col-lg-4">
+                        <select id="howLongToDo" class="form-control">
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                            <option>6</option>
+                            <option>7</option>
+                            <option>8</option>
+                            <option>9</option>
+                            <option>10</option>
+                            <option>11</option>
+                            <option>12</option>
+                            <option>13</option>
+                            <option>14</option>
+                            <option>15</option>
+                            <option>16</option>
+                            <option>17</option>
+                            <option>18</option>
+                            <option>19</option>
+                            <option>20</option>
+                            <option>21</option>
+                            <option>22</option>
+                            <option>23</option>
+                            <option>24</option>
+                        </select>
+                    </div>
+                </div>
+            </fieldset>
+
+    </div>
+    <div>
+        <button type="submit" class="btn btn-primary btn-lg btn-block" id="button_save">등록</button>
+        <a href="/" class="btn btn-default btn-lg btn-block">다시작성</a>
+    </div>
+</div>
+
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="/js/bootstrap.js"></script>
+<script src="/js/mainpost.js"></script>
+
+
+
+</body>
+</html>

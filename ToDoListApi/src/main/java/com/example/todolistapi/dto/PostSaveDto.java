@@ -26,6 +26,7 @@ public class PostSaveDto {
 
     //toEntity를 통해서 Posts Entity에 보내주자!
     public Posts toEntity(){
+
         return Posts.builder().title(title).whatToDo(whatToDo).whenToDo(whenToDo).howLongToDo(howLongToDo).build();
     }
 
