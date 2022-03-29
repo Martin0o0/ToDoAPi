@@ -9,6 +9,8 @@ import java.lang.annotation.Target;
 
 
 @NoArgsConstructor
+@Getter
+@Setter
 @Table(name="Posts")
 @Entity
 public class Posts extends TimeEntity { //시간을 설정할 수 있도록 설정해주자.
@@ -28,6 +30,8 @@ public class Posts extends TimeEntity { //시간을 설정할 수 있도록 설�
     //@Column(nullable = false)
     private Integer howLongToDo;
 
+    private Boolean isComplete;
+
 
 
     @Builder //생성자 생성 => 빌더 패턴 클래스를 생성해 주자.
@@ -36,6 +40,7 @@ public class Posts extends TimeEntity { //시간을 설정할 수 있도록 설�
         this.whatToDo = whatToDo;
         this.whenToDo = whenToDo;
         this.howLongToDo = howLongToDo;
+        this.isComplete = false;
 
     }
 
@@ -44,35 +49,11 @@ public class Posts extends TimeEntity { //시간을 설정할 수 있도록 설�
         this.whatToDo = whatToDo;
         this.whenToDo = whenToDo;
         this.howLongToDo = howLongToDo;
+        this.isComplete = getIsComplete();
     }
 
-    public Long getNo() {
-        return no;
-    }
-
-    public void setNo(Long no) {
-        this.no = no;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public String getWhatToDo() {
-        return whatToDo;
-    }
-
-
-    public String getWhenToDo() {
-        return whenToDo;
-    }
-
-    public Integer getHowLongToDo() {
-        return howLongToDo;
+    public void updateComplete(Boolean isComplete){
+        this.isComplete = isComplete;
     }
 
 }

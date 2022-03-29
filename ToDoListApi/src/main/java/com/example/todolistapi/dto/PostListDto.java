@@ -15,6 +15,8 @@ public class PostListDto {
     private String whenToDo;
     private Integer howLongToDo;
     private LocalTime ModityTime;
+    private Boolean isComplete;
+
 
     public PostListDto(Posts posts){
         this.No = posts.getNo();
@@ -23,6 +25,7 @@ public class PostListDto {
         this.whenToDo = posts.getWhenToDo();
         this.howLongToDo = posts.getHowLongToDo();
         this.ModityTime = posts.getModityTime();
+        this.isComplete = posts.getIsComplete();
     }
 
 

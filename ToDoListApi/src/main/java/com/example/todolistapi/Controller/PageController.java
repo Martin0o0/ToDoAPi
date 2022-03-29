@@ -2,10 +2,13 @@ package com.example.todolistapi.Controller;
 
 
 import com.example.todolistapi.Service.PostService;
+import com.example.todolistapi.dto.PostListDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @RequiredArgsConstructor
@@ -23,5 +26,16 @@ public class PageController {
         model.addAttribute("posts", postService.findAllDesc());
         return "TodoList";
     }
+
+
+    @GetMapping("/api/get/{No}")
+    public String update(@PathVariable Long No, Model model) {
+        PostListDto Dto = postService.findByNo(No);
+        model.addAttribute("posts", Dto);
+
+        return "testput";
+    }
+
+
 
 }

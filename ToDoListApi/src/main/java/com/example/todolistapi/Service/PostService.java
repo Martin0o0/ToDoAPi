@@ -6,6 +6,7 @@ import com.example.todolistapi.PostRepository.PostsRepository;
 import com.example.todolistapi.dto.PostListDto;
 import com.example.todolistapi.dto.PostSaveDto;
 import com.example.todolistapi.dto.PostUpdateDto;
+import com.example.todolistapi.dto.PostUpdateIsCompleteDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -13,6 +14,7 @@ import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 @RequiredArgsConstructor //생성자 알아서 생성
 @Service //PostSaveDto의 toEntity함수를 Repository를 통해 h2데이터베이스에 접근하도록 시키자.
@@ -28,15 +30,30 @@ public class PostService {
     }
 
     @Transactional
-    public Long update(Long No, PostUpdateDto postUpdateDto){
+    public Long update(Long No, PostUpdateDto postupdateDto){
         Posts posts = postsRepository.findById(No).orElseThrow(() -> new IllegalArgumentException("해당하는 게시글이 없다. No : " + No));
-        posts.update(postUpdateDto.getTitle(),postUpdateDto.getWhatToDo(), postUpdateDto.getWhenToDo(), postUpdateDto.getHowLongToDo() );
+        posts.update(postupdateDto.getTitle(),postupdateDto.getWhatToDo(), postupdateDto.getWhenToDo(), postupdateDto.getHowLongToDo() );
         return No;
     }
 
+    @Transactional
+    public Long updateComplete(Long No, PostUpdateIsCompleteDto postUpdateIsCompleteDto){
+        Posts posts = postsRepository.findById(No).orElseThrow(() -> new IllegalArgumentException("해당하는 게시글이 없다. "));
+        posts.updateComplete(postUpdateIsCompleteDto.getIsComplete());
+        return No;
+    }
+
+    //순수 읽기 전용으로 stream에서 map을 람다식으로 해서 toList로 변환 후, 머스타치로 보내주자!
     @org.springframework.transaction.annotation.Transactional(readOnly = true)
     public List<PostListDto> findAllDesc(){
-        return postsRepository.findAllDesc().stream().map(PostListDto::new).collect(Collectors.toList());
+        return postsRepository.findAllDesc().stream().map(dto -> new PostListDto(dto)).collect(Collectors.toList());
+    }
+
+    @Transactional
+    public Long delete(Long No){
+        Posts posts = postsRepository.findById(No).orElseThrow(()-> new IllegalArgumentException("해당 게시글이 없다. 삭제할 수 없음."));
+        postsRepository.delete(posts);
+        return No;
     }
 
 

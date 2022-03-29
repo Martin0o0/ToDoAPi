@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>test 수정.</title>
+
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <style>
+    </style>
+</head>
+<body>
+<div class="container">
+    <header>
+        <a href="/" class="align-items-center text-dark text-decoration-none">
+            <span class="fs-4"><h1 class="text-primary text-center">ToDoList</h1></span>
+        </a>
+        <hr>
+    </header>
+    <h1>게시글 수정</h1>
+
+    <div class="col-md-12">
+        <div class="col-md-6">
+            <form class="form-horizontal" role="form">
+                <fieldset>
+                    <legend><h3 class="text-center text-info">수정해 주세요.</h3></legend>
+                    <div class="form-group">
+                        <label for="No" class="col-xs-4 col-lg-4 control-label">등록 번호</label>
+                        <div class="col-xs-2 col-lg-2 ">
+                            <input type="text" class="form-control" id="No" value="{{posts.No}}" readonly> <!--읽기전용으로 하자-->
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="title" class="col-xs-4 col-lg-4 control-label">제목</label>
+                        <div class="col-xs-8 col-lg-8">
+                            <input type="text" id="title" class="form-control" placeholder="대략적인 제목을 달아주세요.(10자 이내)" value="{{posts.title}}">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="whatToDo" class="col-xs-4 col-lg-4 control-label">구체적인 내용</label>
+                        <div class="col-xs-8 col-lg-8">
+                            <textarea rows="5" id="whatToDo" class="form-control"
+                                      placeholder="뭘 하실것인지 구체적으로 적어주세요.(50자 이내)" >{{posts.whatToDo}}</textarea>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <lebel for="whenToDo" class="col-xs-4 col-lg-4 control-label"><strong>시작 시간</strong></lebel>
+                        <div class="col-xs-4 col-lg-4">
+                            <input type="time" id="whenToDo" class="form-control" value="{{posts.whenToDo}}">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="howLongToDoo" class="col-xs-4 col-lg-4 control-label">예상 소요 시간</label>
+                        <div class="col-xs-4 col-lg-4">
+                            <select id="howLongToDo" class="form-control" >
+                                <option selected>{{posts.howLongToDo}} </option> <!--수정 필요 -->
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                                <option>6</option>
+                                <option>7</option>
+                                <option>8</option>
+                                <option>9</option>
+                                <option>10</option>
+                                <option>11</option>
+                                <option>12</option>
+                                <option>13</option>
+                                <option>14</option>
+                                <option>15</option>
+                                <option>16</option>
+                                <option>17</option>
+                                <option>18</option>
+                                <option>19</option>
+                                <option>20</option>
+                                <option>21</option>
+                                <option>22</option>
+                                <option>23</option>
+                                <option>24</option>
+                            </select>
+                        </div>
+                    </div>
+                </fieldset>
+            </form>
+            <a href="/todolist" role="button" class="btn btn-secondary">취소</a>
+            <button type="button" class="btn btn-info" id="update">수정 완료</button>
+            <button type="button" class="btn btn-danger" id="delete">삭제</button>
+            <button type="button" class="btn btn-primary" id="complete">완료</button>
+        </div>
+    </div>
+
+
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="/js/bootstrap.js"></script>
+<script src="/js/update.js"></script>
+<script src="/js/delete.js"></script>
+<script src="/js/iscomplete.js"></script>
+
+
+</body>
+</html>

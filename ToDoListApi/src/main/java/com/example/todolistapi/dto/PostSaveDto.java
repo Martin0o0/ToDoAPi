@@ -7,6 +7,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 
+@Setter
+@Getter
 @NoArgsConstructor
 public class PostSaveDto {
 
@@ -31,35 +33,4 @@ public class PostSaveDto {
     }
 
 
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public String getWhatToDo() {
-        return whatToDo;
-    }
-
-    public void setWhatToDo(String whatToDo) {
-        this.whatToDo = whatToDo;
-    }
-
-    public String getWhenToDo() {
-        return whenToDo;
-    }
-
-    public void setWhenToDo(String whenToDo) {
-        this.whenToDo = whenToDo;
-    }
-
-    public Integer getHowLongToDo() {
-        return howLongToDo;
-    }
-
-    public void setHowLongToDo(Integer howLongToDo) {
-        this.howLongToDo = howLongToDo;
-    }
 }

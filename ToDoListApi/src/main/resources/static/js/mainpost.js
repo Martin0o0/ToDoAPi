@@ -8,15 +8,15 @@ btn_save.addEventListener('click', function (event) {
     let _howLongTodo = document.querySelector("#howLongToDo");
 
     data = {
-        title : _title.value,
+        title: _title.value,
         whatToDo: _whatToDo.value,
         whenToDo: _whenToDo.value,
-        howLongToDo : parseInt(_howLongTodo.value)
+        howLongToDo: parseInt(_howLongTodo.value)
     }
     console.log(_title.value);
     console.log(_whatToDo.value);
     console.log(_whenToDo.value);
-    console.log(typeof(data.howLongToDo));
+    console.log(typeof (data.howLongToDo));
 
     var xhr = new XMLHttpRequest();
     /* Post 방식으로 요청 */
@@ -28,7 +28,6 @@ btn_save.addEventListener('click', function (event) {
 
     xhr.send(JSON.stringify(data));
     console.log(JSON.stringify(data));
-
 
 
     xhr.onload = function () { //통신 성공
@@ -44,13 +43,4 @@ btn_save.addEventListener('click', function (event) {
     }
 
 });
-
-
-// $('#btn-update').on('click', function () {
-//     _this.update();
-// });
-//
-// $('#btn-delete').on('click', function () {
-//     _this.delete();
-// });
 

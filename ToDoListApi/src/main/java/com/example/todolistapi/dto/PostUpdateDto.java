@@ -4,9 +4,11 @@ package com.example.todolistapi.dto;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.PostUpdate;
-
+@Getter
+@Setter
 @NoArgsConstructor
 public class PostUpdateDto {
     private String title;
@@ -23,35 +25,4 @@ public class PostUpdateDto {
         this.howLongToDo = howLongToDo;
     }
 
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public String getWhatToDo() {
-        return whatToDo;
-    }
-
-    public void setWhatToDo(String whatToDo) {
-        this.whatToDo = whatToDo;
-    }
-
-    public String getWhenToDo() {
-        return whenToDo;
-    }
-
-    public void setWhenToDo(String whenToDo) {
-        this.whenToDo = whenToDo;
-    }
-
-    public Integer getHowLongToDo() {
-        return howLongToDo;
-    }
-
-    public void setHowLongToDo(Integer howLongToDo) {
-        this.howLongToDo = howLongToDo;
-    }
 }
