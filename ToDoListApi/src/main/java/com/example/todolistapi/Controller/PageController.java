@@ -1,9 +1,16 @@
 package com.example.todolistapi.Controller;
 
 
+import com.example.todolistapi.PostRepository.Posts;
 import com.example.todolistapi.Service.PostService;
 import com.example.todolistapi.dto.PostListDto;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import net.bytebuddy.TypeCache;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,6 +18,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+@Slf4j
 @RequiredArgsConstructor
 @Controller
 public class PageController {
@@ -22,11 +30,36 @@ public class PageController {
     }
 
     @GetMapping("/todolist")
-    public String ToDoList(Model model) { //머스테치에 객체를 보내주기 위해 가인수로 받자.
-        model.addAttribute("posts", postService.findAllDesc());
+    public String ToDoList(Model model, @PageableDefault(sort="No", direction = Sort.Direction.ASC) Pageable pageable) {
+        //머스테치에 객체를 보내주기 위해 가인수로 받자., PageableDefault로  No값으로 정렬 받고, direction으로 오름차순 정렬
+        Page<Posts> list = postService.pageList(pageable);
+
+        model.addAttribute("posts", list);
+        model.addAttribute("previous", pageable.previousOrFirst().getPageNumber()); //이전페이지 번호를 받아오고
+        model.addAttribute("next", pageable.next().getPageNumber()); //다음 페이지 번호를 받아온다.
+        model.addAttribute("hasNext", list.hasNext());
+        model.addAttribute("hasPrev", list.hasPrevious());
+        log.info(Integer.toString(pageable.next().getPageNumber()));
+        log.info(Integer.toString(pageable.next().getPageNumber()));
+        System.out.println(list.hasNext());
+        System.out.println(list.hasPrevious());
+
         return "TodoList";
     }
 
+    /*
+    @PageableDefault
+
+      ○ size : 한 페이지에 담을 모델의 수를 정할 수 있다. 기본 값은 10이다.
+
+      ○ sort : 정렬의 기준이 되는 속성을 정한다.
+
+      ○ direction : 오름차순과 내림차순 중 기준을 선택할 수 있다.
+
+      ○ Pageable pageable : PageableDefault 값을 갖고 있는 변수를 선언한다.
+
+출처: https://dev-coco.tistory.com/114?category=1032063 [슬기로운 개발생활😃]
+     */
 
     @GetMapping("/api/get/{No}")
     public String update(@PathVariable Long No, Model model) {

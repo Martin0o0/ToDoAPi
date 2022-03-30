@@ -9,51 +9,73 @@
 
     <link rel="stylesheet" href="/css/bootstrap.min.css">
     <style>
+        .boxsize{
+            height:500px;
+
+        }
     </style>
 </head>
 <body>
-<div class="container">
-    <header>
-        <a href="/" class="align-items-center text-dark text-decoration-none">
-            <span class="fs-4"><h1 class="text-primary text-center">ToDoList</h1></span>
-        </a>
-        <hr>
-    </header>
-    <div class="col-md-12">
-        <br>
-        <table class="table table-horizontal table-bordered">
-            <thread class="thread-string">
-                <tr>
-                    <th>게시글번호</th>
-                    <th>제목</th>
-                    <th>할 내용</th>
-                    <th>시작시간</th>
-                    <th>최종 등록시간</th>
-                    <th>완료여부</th>
-                </tr>
-            </thread>
-            <tbody id="tbody">
-            {{#posts}}
-                <tr>
-                    <td>{{No}}</td>
-                    <td><a href="/api/get/{{No}}">{{title}}</td>
-                    <td>{{whatToDo}}</td>
-                    <td>{{whenToDo}}</td>
-                    <td>{{ModityTime}}</td>
-                    <td>{{isComplete}}</td>
-                </tr>
-            {{/posts}}
-            </tbody>
-
-        </table>
+    <div class="container">
+        <header>
+            <a href="/" class="align-items-center text-dark text-decoration-none">
+                <span class="fs-4"><h1 class="text-primary text-center">ToDoList</h1></span>
+            </a>
+            <hr>
+        </header>
+        <div class="col-md-12">
+            <br>
+            <div class="boxsize">
+            <table class="table table-horizontal table-hover">
+                <thread class="thread-string">
+                    <tr class="active">
+                        <th>등록번호</th>
+                        <th>제목</th>
+                        <th>시작시간</th>
+                        <th>최종 등록시간</th>
+                        <th>완료여부</th>
+                    </tr>
+                </thread>
+                <tbody id="tbody body">
+                {{#posts}}
+                    <tr>
+                        <td>{{No}}</td>
+                        <td><a href="/api/get/{{No}}">{{title}}</td>
+                        <td>{{whenToDo}}</td>
+                        <td>{{ModityTime}}</td>
+                        <td id="iscomplete">{{isComplete}}</td>
+                    </tr>
+                {{/posts}}
+                </tbody>
+            </table>
+            </div>
+        </div>
+        <div class="container">
+        <ul class="pager">
+            {{#hasPrev}}
+                <li>
+                <a href="?page={{previous}}">이전 페이지 </a>
+                </li>
+            {{/hasPrev}}
+            {{^hasPrev}}
+                <li class="disabled"><a href="#" class="disable">이전 페이지</a></li>
+            {{/hasPrev}}
+            {{#hasNext}}
+                <li><a href="?page={{next}}">다음 페이지</a>
+                </li>
+            {{/hasNext}}
+            {{^hasNext}}
+                <li class="disabled"><a href="#" class="disable">다음 페이지</a></li>
+            {{/hasNext}}
+        </ul>
+    </div>
     </div>
 
-
-</div>
 
 
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script src="/js/bootstrap.js"></script>
+<script src="/js/list.js"></script>
 
 
 </body>

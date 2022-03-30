@@ -29,20 +29,22 @@
                     <div class="form-group">
                         <label for="No" class="col-xs-4 col-lg-4 control-label">등록 번호</label>
                         <div class="col-xs-2 col-lg-2 ">
-                            <input type="text" class="form-control" id="No" value="{{posts.No}}" readonly> <!--읽기전용으로 하자-->
+                            <input type="text" class="form-control" id="No" value="{{posts.No}}" readonly>
+                            <!--읽기전용으로 하자-->
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="title" class="col-xs-4 col-lg-4 control-label">제목</label>
                         <div class="col-xs-8 col-lg-8">
-                            <input type="text" id="title" class="form-control" placeholder="대략적인 제목을 달아주세요.(10자 이내)" value="{{posts.title}}">
+                            <input type="text" id="title" class="form-control" placeholder="대략적인 제목을 달아주세요.(10자 이내)"
+                                   value="{{posts.title}}">
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="whatToDo" class="col-xs-4 col-lg-4 control-label">구체적인 내용</label>
                         <div class="col-xs-8 col-lg-8">
                             <textarea rows="5" id="whatToDo" class="form-control"
-                                      placeholder="뭘 하실것인지 구체적으로 적어주세요.(50자 이내)" >{{posts.whatToDo}}</textarea>
+                                      placeholder="뭘 하실것인지 구체적으로 적어주세요.(50자 이내)">{{posts.whatToDo}}</textarea>
                         </div>
                     </div>
                     <div class="form-group">
@@ -54,32 +56,30 @@
                     <div class="form-group">
                         <label for="howLongToDoo" class="col-xs-4 col-lg-4 control-label">예상 소요 시간</label>
                         <div class="col-xs-4 col-lg-4">
-                            <select id="howLongToDo" class="form-control" >
-                                <option selected>{{posts.howLongToDo}} </option> <!--수정 필요 -->
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
-                                <option>6</option>
-                                <option>7</option>
-                                <option>8</option>
-                                <option>9</option>
-                                <option>10</option>
-                                <option>11</option>
-                                <option>12</option>
-                                <option>13</option>
-                                <option>14</option>
-                                <option>15</option>
-                                <option>16</option>
-                                <option>17</option>
-                                <option>18</option>
-                                <option>19</option>
-                                <option>20</option>
-                                <option>21</option>
-                                <option>22</option>
-                                <option>23</option>
-                                <option>24</option>
+                            <select id="howLongToDo" class="form-control">
+                                <script>
+                                    var select = document.querySelector("#howLongToDo");
+                                    // console.dir(select);
+
+                                    for (let i = 1; i < {{posts.howLongToDo}}; i++) {
+                                        let option = document.createElement("option");
+                                        option.textContent = i;
+                                        select.appendChild(option);
+                                    }
+                                    let selectedoption = document.createElement("option");
+                                    selectedoption.setAttribute("selected", true);
+                                    selectedoption.setAttribute("disabled", true);
+                                    selectedoption.textContent = {{posts.howLongToDo}};
+                                    select.appendChild(selectedoption);
+                                    for (let i = ({{posts.howLongToDo}} +1); i <= 24; i++) {
+                                        let option = document.createElement("option");
+                                        option.textContent = i;
+                                        select.appendChild(option);
+                                    }
+
+                                </script>
+                                <!--                                <option selected disabled>{{!posts.howLongToDo}} </option> &lt;!&ndash;수정 필요 &ndash;&gt;-->
+
                             </select>
                         </div>
                     </div>

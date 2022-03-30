@@ -8,6 +8,8 @@ import com.example.todolistapi.dto.PostSaveDto;
 import com.example.todolistapi.dto.PostUpdateDto;
 import com.example.todolistapi.dto.PostUpdateIsCompleteDto;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -44,10 +46,17 @@ public class PostService {
     }
 
     //순수 읽기 전용으로 stream에서 map을 람다식으로 해서 toList로 변환 후, 머스타치로 보내주자!
+//    @org.springframework.transaction.annotation.Transactional(readOnly = true)
+//    public List<PostListDto> findAllDesc(){
+//        return postsRepository.findAllDesc().stream().map(dto -> new PostListDto(dto)).collect(Collectors.toList());
+//    }
+
+    //페이징 처리 10개로 제한.
     @org.springframework.transaction.annotation.Transactional(readOnly = true)
-    public List<PostListDto> findAllDesc(){
-        return postsRepository.findAllDesc().stream().map(dto -> new PostListDto(dto)).collect(Collectors.toList());
+    public Page<Posts> pageList(Pageable pageable){ //page<T>로 지정하면 바드시 파라미터로 pageable한것으로 해주어야 한다고 함.
+        return postsRepository.findAll(pageable);
     }
+
 
     @Transactional
     public Long delete(Long No){
