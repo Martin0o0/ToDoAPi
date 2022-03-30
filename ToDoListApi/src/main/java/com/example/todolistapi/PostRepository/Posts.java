@@ -18,16 +18,17 @@ public class Posts extends TimeEntity { //시간을 설정할 수 있도록 설�
     @GeneratedValue(strategy = GenerationType.IDENTITY) //자동으로 증가하도록 기본키 생성 규칙을 적용.
     private Long no;
 
-    //@Column(nullable = false)
+    @Column(nullable = false)
     private String title;
 
-    //@Column(nullable = false)
+    @Column(nullable = false)
     private String whatToDo;
 
-    //@Column(nullable = false)
+    @Column(nullable = false)
     private String whenToDo;
 
-    //@Column(nullable = false)
+
+    @Column(nullable = false)
     private Integer howLongToDo;
 
     private Boolean isComplete;

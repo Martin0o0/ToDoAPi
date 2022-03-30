@@ -47,6 +47,27 @@ public class PageController {
         return "TodoList";
     }
 
+
+    @GetMapping("/todolist/search")
+    public String ToDoListSearch(String key, Model model, @PageableDefault(sort="No", direction = Sort.Direction.ASC) Pageable pageable) {
+        //머스테치에 객체를 보내주기 위해 가인수로 받자., PageableDefault로  No값으로 정렬 받고, direction으로 오름차순 정렬
+        Page<Posts> list = postService.search(key, pageable);
+
+        model.addAttribute("posts", list);
+        model.addAttribute("key", key);
+        model.addAttribute("previous", pageable.previousOrFirst().getPageNumber()); //이전페이지 번호를 받아오고
+        model.addAttribute("next", pageable.next().getPageNumber()); //다음 페이지 번호를 받아온다.
+        model.addAttribute("hasNext", list.hasNext());
+        model.addAttribute("hasPrev", list.hasPrevious());
+        log.info(Integer.toString(pageable.next().getPageNumber()));
+        log.info(Integer.toString(pageable.next().getPageNumber()));
+        System.out.println(list.hasNext());
+        System.out.println(list.hasPrevious());
+
+        return "TodoListSearch";
+    }
+
+
     /*
     @PageableDefault
 

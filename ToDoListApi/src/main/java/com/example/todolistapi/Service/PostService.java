@@ -57,6 +57,11 @@ public class PostService {
         return postsRepository.findAll(pageable);
     }
 
+    @Transactional
+    public Page<Posts> search(String key, Pageable pageable){
+        Page<Posts> list = postsRepository.findByTitleContaining(key, pageable);
+        return list;
+    }
 
     @Transactional
     public Long delete(Long No){
@@ -68,6 +73,7 @@ public class PostService {
 
 
 
+    @Transactional
     public PostListDto findByNo(Long No){
         Posts entity = postsRepository.findById(No).orElseThrow(() -> new IllegalArgumentException("해당하는 게시글이 없습니다. No : " + No));
 
