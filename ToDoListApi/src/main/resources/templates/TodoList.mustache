@@ -34,14 +34,13 @@
                 <div class="input-group">
                     <span class="input-group-addon"> <span class="glyphicon glyphicon-search"> </span> </span>
                     <input type="text" name="key" id="ToDoListSearch" class="form-control" placeholder="제목을 입력해 주세요.">
-                    <span class="input-group-btn"><button class="btn btn-default" type="button">검색 </button> </span>
+                    <span class="input-group-btn"><button class="btn btn-default" type="submit">검색 </button> </span>
                 </div>
             </form>
             <hr>
             <li class="active"><a href="/todolist">전체</a></li>
-            <!--            <span class="badge pull-right">42</span> 추후 적용 예정-->
-            <li><a href="#">완료된 항목</a></li>
-            <li><a href="#">미완료된 항목</a></li>
+            <li><a href="/todolist/complete">완료된 항목</a></li>
+            <li><a href="/todolist/not-complete">미완료된 항목</a></li>
         </ul>
     </div>
     <div class="cotainer">

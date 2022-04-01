@@ -8,6 +8,7 @@ import com.example.todolistapi.dto.PostSaveDto;
 import com.example.todolistapi.dto.PostUpdateDto;
 import com.example.todolistapi.dto.PostUpdateIsCompleteDto;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -18,14 +19,14 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-@RequiredArgsConstructor //생성자 알아서 생성
+//@RequiredArgsConstructor //생성자 알아서 생성
 @Service //PostSaveDto의 toEntity함수를 Repository를 통해 h2데이터베이스에 접근하도록 시키자.
 public class PostService {
     private final PostsRepository postsRepository;
-
-//    public PostService(PostsRepository postsRepository){
-//        this.postsRepository = postsRepository;
-//    }
+    @Autowired
+    public PostService(PostsRepository postsRepository){
+        this.postsRepository = postsRepository;
+    }
     @Transactional //트랜잭션 발동!
     public Long save(PostSaveDto requestDto){
         return postsRepository.save(requestDto.toEntity()).getNo();
@@ -62,6 +63,13 @@ public class PostService {
         Page<Posts> list = postsRepository.findByTitleContaining(key, pageable);
         return list;
     }
+
+    @Transactional
+    public Page<Posts> isComplete(Boolean isComplete, Pageable pageable){
+        Page<Posts> list = postsRepository.findByIsComplete(isComplete, pageable);
+        return list;
+    }
+
 
     @Transactional
     public Long delete(Long No){

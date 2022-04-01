@@ -5,11 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <title>ToDoList-검색페이지</title>
+    <title>ToDoList-등록항목 살펴보기</title>
 
     <link rel="stylesheet" href="/css/bootstrap.min.css">
     <style>
         .boxsize {
+            height: 500px;
+        }
+
+        .emptybox {
             height: 500px;
         }
     </style>
@@ -27,16 +31,16 @@
     <div class="col-xs-2 col-md-2">
         <ul class="nav nav-pills nav-stacked">
             <form action="/todolist/search" method="GET">
-            <div class="input-group">
-                <span class="input-group-addon"> <span class="glyphicon glyphicon-search"> </span> </span>
-                <input type="text" name="key" id="ToDoListSearch" class="form-control" placeholder="제목을 입력해 주세요." value="{{key}}">
-                <span class="input-group-btn"><button class="btn btn-default" type="submit">검색 </button> </span>
-            </div>
+                <div class="input-group">
+                    <span class="input-group-addon"> <span class="glyphicon glyphicon-search"> </span> </span>
+                    <input type="text" name="key" id="ToDoListSearch" class="form-control" placeholder="제목을 입력해 주세요.">
+                    <span class="input-group-btn"><button class="btn btn-default" type="submit">검색 </button> </span>
+                </div>
             </form>
             <hr>
-            <li class="active"><a href="/todolist">전체</a></li>
-            <li><a href="/todolist/complete">완료된 항목</a></li>
-            <li><a href="/todolist/not-complete">미완료된 항목</a></li>
+            <li ><a href="/todolist">전체</a></li>
+            <li class="active"><a href="/todolist/complete">완료된 항목</a></li>
+            <li><a href="/todolist/not-complete">미완료된 항목</a></li>h
         </ul>
     </div>
     <div class="cotainer">
@@ -68,26 +72,28 @@
             </div>
         </div>
     </div>
-    <div class="col-xs-offset-2 col-md-offset-2"></div>
+    <div class="col-xs-2 col-md-2 emptybox"></div>
     <div class="container">
-        <ul class="pager">
+        <ul class="pager position-fixed">
             {{#hasPrev}}
-                <li>
-                    <a href="/todolist/search?{{key}}&keypage={{previous}}">이전 페이지 </a>
+                <li class="position-fixed">
+                    <a href="?page={{previous}}">이전 페이지 </a>
                 </li>
             {{/hasPrev}}
             {{^hasPrev}}
-                <li class="disabled"><a href="#" class="disable">이전 페이지</a></li>
+                <li class="disabled position-fixed"><a href="#" class="disable">이전 페이지</a></li>
             {{/hasPrev}}
             {{#hasNext}}
-                <li><a href="/todolist/search?{{key}}?page={{next}}">다음 페이지</a>
+                <li class="position-fixed"><a href="?page={{next}}">다음 페이지</a>
                 </li>
             {{/hasNext}}
             {{^hasNext}}
-                <li class="disabled"><a href="#" class="disable">다음 페이지</a></li>
+                <li class="disabled position-fixed"><a href="#" class="disable">다음 페이지</a></li>
             {{/hasNext}}
         </ul>
     </div>
+
+
 </div>
 
 

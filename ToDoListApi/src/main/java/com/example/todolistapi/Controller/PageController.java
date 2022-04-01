@@ -13,10 +13,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 @Slf4j
 @RequiredArgsConstructor
@@ -39,8 +36,7 @@ public class PageController {
         model.addAttribute("next", pageable.next().getPageNumber()); //다음 페이지 번호를 받아온다.
         model.addAttribute("hasNext", list.hasNext());
         model.addAttribute("hasPrev", list.hasPrevious());
-        log.info(Integer.toString(pageable.next().getPageNumber()));
-        log.info(Integer.toString(pageable.next().getPageNumber()));
+
         System.out.println(list.hasNext());
         System.out.println(list.hasPrevious());
 
@@ -50,6 +46,7 @@ public class PageController {
 
     @GetMapping("/todolist/search")
     public String ToDoListSearch(String key, Model model, @PageableDefault(sort="No", direction = Sort.Direction.ASC) Pageable pageable) {
+        log.info(key);
         //머스테치에 객체를 보내주기 위해 가인수로 받자., PageableDefault로  No값으로 정렬 받고, direction으로 오름차순 정렬
         Page<Posts> list = postService.search(key, pageable);
 
@@ -59,12 +56,46 @@ public class PageController {
         model.addAttribute("next", pageable.next().getPageNumber()); //다음 페이지 번호를 받아온다.
         model.addAttribute("hasNext", list.hasNext());
         model.addAttribute("hasPrev", list.hasPrevious());
+        System.out.println(list.hasNext());
+        System.out.println(list.hasPrevious());
+
+        return "TodoListSearch";
+    }
+
+
+    @GetMapping("/todolist/complete")
+    public String ToDoListComplete(Model model, @PageableDefault(sort="No", direction = Sort.Direction.ASC) Pageable pageable) {
+        //머스테치에 객체를 보내주기 위해 가인수로 받자., PageableDefault로  No값으로 정렬 받고, direction으로 오름차순 정렬
+        Page<Posts> list = postService.isComplete(true, pageable);
+
+        model.addAttribute("posts", list);
+        model.addAttribute("previous", pageable.previousOrFirst().getPageNumber()); //이전페이지 번호를 받아오고
+        model.addAttribute("next", pageable.next().getPageNumber()); //다음 페이지 번호를 받아온다.
+        model.addAttribute("hasNext", list.hasNext());
+        model.addAttribute("hasPrev", list.hasPrevious());
         log.info(Integer.toString(pageable.next().getPageNumber()));
         log.info(Integer.toString(pageable.next().getPageNumber()));
         System.out.println(list.hasNext());
         System.out.println(list.hasPrevious());
 
-        return "TodoListSearch";
+        return "TodoListComplete";
+    }
+    @GetMapping("/todolist/not-complete")
+    public String ToDoListNotComplete(Model model, @PageableDefault(sort="No", direction = Sort.Direction.ASC) Pageable pageable) {
+        //머스테치에 객체를 보내주기 위해 가인수로 받자., PageableDefault로  No값으로 정렬 받고, direction으로 오름차순 정렬
+        Page<Posts> list = postService.isComplete(false, pageable);
+
+        model.addAttribute("posts", list);
+        model.addAttribute("previous", pageable.previousOrFirst().getPageNumber()); //이전페이지 번호를 받아오고
+        model.addAttribute("next", pageable.next().getPageNumber()); //다음 페이지 번호를 받아온다.
+        model.addAttribute("hasNext", list.hasNext());
+        model.addAttribute("hasPrev", list.hasPrevious());
+        log.info(Integer.toString(pageable.next().getPageNumber()));
+        log.info(Integer.toString(pageable.next().getPageNumber()));
+        System.out.println(list.hasNext());
+        System.out.println(list.hasPrevious());
+
+        return "TodoListNotComplete";
     }
 
 

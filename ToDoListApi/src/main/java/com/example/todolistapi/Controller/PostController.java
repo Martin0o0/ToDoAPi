@@ -8,6 +8,7 @@ import com.example.todolistapi.dto.PostUpdateDto;
 import com.example.todolistapi.dto.PostUpdateIsCompleteDto;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.persistence.PostUpdate;
@@ -17,6 +18,7 @@ import javax.persistence.PostUpdate;
 @RequiredArgsConstructor
 @RequestMapping("/api")
 public class PostController {
+
     private final PostService postService;
 
 
