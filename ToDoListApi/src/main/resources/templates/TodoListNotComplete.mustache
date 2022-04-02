@@ -28,23 +28,24 @@
             <hr>
         </div>
     </header>
-    <div class="col-xs-2 col-md-2">
-        <ul class="nav nav-pills nav-stacked">
-            <form action="/todolist/search" method="GET">
-                <div class="input-group">
-                    <span class="input-group-addon"> <span class="glyphicon glyphicon-search"> </span> </span>
-                    <input type="text" name="key" id="ToDoListSearch" class="form-control" placeholder="제목을 입력해 주세요.">
-                    <span class="input-group-btn"><button class="btn btn-default" type="submit">검색 </button> </span>
-                </div>
-            </form>
-            <hr>
-            <li><a href="/todolist">전체</a></li>
-            <li><a href="/todolist/complete">완료된 항목</a></li>
-            <li class="active"><a href="/todolist/not-complete">미완료된 항목</a></li>
+    <div class="row">
+        <div class="col-xs-2 col-md-2">
+            <ul class="nav nav-pills nav-stacked">
+                <form action="/todolist/search" method="GET">
+                    <div class="input-group">
+                        <span class="input-group-addon"> <span class="glyphicon glyphicon-search"> </span> </span>
+                        <input type="text" name="key" id="ToDoListSearch" class="form-control"
+                               placeholder="제목을 입력해 주세요.">
+                        <span class="input-group-btn"><button class="btn btn-default" type="submit">검색 </button> </span>
+                    </div>
+                </form>
+                <hr>
+                <li><a href="/todolist">전체</a></li>
+                <li><a href="/todolist/complete">완료된 항목</a></li>
+                <li class="active"><a href="/todolist/not-complete">미완료된 항목</a></li>
 
-        </ul>
-    </div>
-    <div class="cotainer">
+            </ul>
+        </div>
         <div class="col-xs-8 col-md-8">
             <br>
             <div class="boxsize">
@@ -72,8 +73,8 @@
                 </table>
             </div>
         </div>
+        <div class="col-xs-2 col-md-2 emptybox"></div>
     </div>
-    <div class="col-xs-2 col-md-2 emptybox"></div>
     <div class="container">
         <ul class="pager position-fixed">
             {{#hasPrev}}
@@ -93,8 +94,6 @@
             {{/hasNext}}
         </ul>
     </div>
-
-
 </div>
 
 
