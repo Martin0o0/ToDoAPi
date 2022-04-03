@@ -55,9 +55,9 @@ public class PostController {
     }
 
 
-
+//
 //    @GetMapping("/get/{No}")
-//    public PostListDto findById(@PathVariable Long No) {
+//    public PostListDto findByNo(@PathVariable Long No) {
 //        return postService.findByNo(No);
 //    }
 

@@ -79,8 +79,6 @@ public class PostService {
     }
 
 
-
-
     @Transactional
     public PostListDto findByNo(Long No){
         Posts entity = postsRepository.findById(No).orElseThrow(() -> new IllegalArgumentException("해당하는 게시글이 없습니다. No : " + No));

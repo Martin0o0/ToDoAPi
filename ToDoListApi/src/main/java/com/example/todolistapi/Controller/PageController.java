@@ -27,7 +27,7 @@ public class PageController {
     }
 
     @GetMapping("/todolist")
-    public String ToDoList(Model model, @PageableDefault(sort="No", direction = Sort.Direction.ASC) Pageable pageable) {
+    public String ToDoList(Model model, @PageableDefault(sort="whenToDo", direction = Sort.Direction.ASC) Pageable pageable) {
         //머스테치에 객체를 보내주기 위해 가인수로 받자., PageableDefault로  No값으로 정렬 받고, direction으로 오름차순 정렬
         Page<Posts> list = postService.pageList(pageable);
 
