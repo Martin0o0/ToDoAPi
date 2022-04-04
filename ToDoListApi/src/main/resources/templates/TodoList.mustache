@@ -9,11 +9,7 @@
 
     <link rel="stylesheet" href="/css/bootstrap.min.css">
     <style>
-        .boxsize {
-            height: 500px;
-        }
-
-        .emptybox {
+        .containerbox {
             height: 500px;
         }
     </style>
@@ -23,50 +19,54 @@
     <header>
         <div class="container">
             <a href="/" class="align-items-center text-dark text-decoration-none">
-                <span class="fs-4"><h1 class="text-primary text-center">ToDoList</h1></span>
+                <h2 class="text-primary text-center my-4">ToDoList</h2>
             </a>
             <hr>
         </div>
     </header>
-    <div class="row">
-        <div class="col-xs-2 col-md-2">
-            <ul class="nav nav-pills nav-stacked">
-                <form action="/todolist/search" method="GET">
-                    <div class="input-group">
-                        <span class="input-group-addon"> <span class="glyphicon glyphicon-search"> </span> </span>
-                        <input type="text" name="key" id="ToDoListSearch" class="form-control"
-                               placeholder="제목을 입력해 주세요.">
-                        <span class="input-group-btn"><button class="btn btn-default" type="submit">검색 </button> </span>
-                    </div>
-                </form>
-                <hr>
-                <li class="active"><a href="/todolist">전체</a></li>
-                <li><a href="/todolist/complete">완료된 항목</a></li>
-                <li><a href="/todolist/not-complete">미완료된 항목</a></li>
-            </ul>
+    <div class="row containerbox">
+        <div class="col-sm-2 col-md-2">
+            <form action="/todolist/search" method="GET">
+                <div class="input-group my-3">
+                    <span class="input-group-text"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                         fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                        <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                      </svg>
+                      </span>
+                    <input type="text" name="key" id="ToDoListSearch" class="form-control"
+                           placeholder="제목">
+                    <span class="input-group-btn"><button class="btn btn-outline-success"
+                                                          type="submit">검색 </button> </span>
+                </div>
+            </form>
+            <hr>
+            <nav class="mt-2 nav nav-pills flex-column nav-fill nav-justified">
+                <a class="my-1 nav-link active" href="/todolist">전체</a>
+                <a class="my-1 nav-link" href="/todolist/complete">완료된 항목</a>
+                <a class="my-1 nav-link" href="/todolist/not-complete">미완료된 항목</a>
+            </nav>
         </div>
         <div class="col-xs-8 col-md-8">
             <br>
-            <div class="boxsize">
-                <table class="table table-horizontal table-hover">
+            <div class="container">
+                <table class="table table-hover">
                     <thread class="thread-string">
-                        <tr class="active">
-                            <th>등록번호</th>
-                            <th>제목</th>
-                            <th>시작시간</th>
-                            <th>최종 등록시간</th>
-                            <th>완료여부</th>
+                        <tr class="table-active bg-opacity-50">
+                            <th class="text-center">제목</th>
+                            <th class="text-center">시작시간</th>
+                            <th class="text-center">종료시간</th>
+                            <th class="text-center">최종 수정시간</th>
+                            <th class="text-center">완료여부</th>
                         </tr>
                     </thread>
                     <tbody id="tbody body">
                     {{#posts}}
                         <tr>
-                            <td>{{No}}</td>
-                            <td><a href="/api/get/{{No}}" >{{title}}</td>
-<!--                            <td><a href="#myModal">{{title}}</a></td>-->
-                            <td>{{whenToDo}}</td>
-                            <td>{{ModityTime}}</td>
-                            <td id="iscomplete">{{isComplete}}</td>
+                            <td class="text-center"><a href="/api/get/{{No}}">{{title}}</td>
+                            <td class="text-center">{{whenToDo}}</td>
+                            <td class="text-center">{{expectedTime}}</td>
+                            <td class="text-center">{{ModityTime}}</td>
+                            <td class="text-center" id="iscomplete">{{isComplete}}</td>
                         </tr>
                     {{/posts}}
                     </tbody>
@@ -75,31 +75,37 @@
         </div>
     </div>
     <div class="container">
-        <ul class="pager position-fixed">
-            {{#hasPrev}}
-                <li class="position-fixed">
-                    <a href="?page={{previous}}">이전 페이지 </a>
-                </li>
-            {{/hasPrev}}
-            {{^hasPrev}}
-                <li class="disabled position-fixed"><a href="#" class="disable">이전 페이지</a></li>
-            {{/hasPrev}}
-            {{#hasNext}}
-                <li class="position-fixed"><a href="?page={{next}}">다음 페이지</a>
-                </li>
-            {{/hasNext}}
-            {{^hasNext}}
-                <li class="disabled position-fixed"><a href="#" class="disable">다음 페이지</a></li>
-            {{/hasNext}}
-        </ul>
+        <nav aria-label="...">
+            <ul class="pagination justify-content-center">
+                {{#hasPrev}}
+                    <li class="page-item">
+                        <a class="page-link" href="?page={{previous}}">이전 페이지 </a>
+                    </li>
+                {{/hasPrev}}
+                {{^hasPrev}}
+                    <li class="page-item disabled"><a href="#" class="page-link disable">이전 페이지</a></li>
+                {{/hasPrev}}
+                {{#hasNext}}
+                    <li class="page-item"><a class="page-link" href="?page={{next}}">다음 페이지</a>
+                    </li>
+                {{/hasNext}}
+                {{^hasNext}}
+                    <li class="page-item disabled"><a href="#" class="page-link disable">다음 페이지</a></li>
+                {{/hasNext}}
+            </ul>
+
+        </nav>
+
+
     </div>
 
 
 </div>
+<script>
+    var i = 0;
+</script>
 
-
-<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-<script src="/js/bootstrap.js"></script>
+<script src="/js/bootstrap.min.js"></script>
 <script src="/js/list.js"></script>
 
 
