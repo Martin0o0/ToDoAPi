@@ -8,6 +8,7 @@
     <title>ToDoList-미완료항목 살펴보기</title>
 
     <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <script src="/js/bootstrap.bundle.min.js"></script>
     <style>
 
 
@@ -63,8 +64,7 @@
                     </thread>
                     <tbody id="tbody body">
                     {{#posts}}
-                        <tr>
-                            <td class="text-center"><a href="/api/get/{{No}}">{{title}}</td>
+                            <td class="text-center"><a href="/api/get/{{No}}" data-bs-toggle="tooltip" data-bs-placement="top" title="{{whatToDo}}">{{title}}</td>
                             <td class="text-center">{{whenToDo}}</td>
                             <td class="text-center">{{expectedTime}}</td>
                             <td class="text-center">{{ModityTime}}</td>
@@ -101,9 +101,15 @@
 
     </div>
 </div>
+<script>
+    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+    var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+        return new bootstrap.Tooltip(tooltipTriggerEl)
+    })
+
+</script>
 
 
-<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script src="/js/bootstrap.js"></script>
 <script src="/js/list.js"></script>
 
