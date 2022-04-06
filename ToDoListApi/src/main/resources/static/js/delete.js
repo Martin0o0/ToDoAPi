@@ -1,12 +1,12 @@
-var btn_delete = document.querySelector("#delete");
+var btn_delete = document.querySelector("#deletebtn");
+var _No = btn_delete.dataset.rol;
 
 btn_delete.addEventListener('click', function (event) {
-    event.preventDefault();
-    let _No = document.querySelector("#No");
+
     var xhr = new XMLHttpRequest();
-    console.log(_No.value);
+    console.log(_No);
     /* Post 방식으로 요청 */
-    let url = '/api/delete/' + _No.value;
+    let url = '/api/delete/' + _No;
     console.log(url);
     xhr.open('DELETE', url, true);
     /* Response Type을 Json으로 사전 정의 */

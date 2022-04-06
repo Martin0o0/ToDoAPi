@@ -65,22 +65,35 @@
                     <tbody id="tbody body">
                     {{#posts}}
                         <tr data-rol="{{No}}">
-                            <td class="text-center"><a href="#" class="text-reset me-1" id="iscompletebtn" ><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check2-square" viewBox="0 0 16 16">
-                                <path d="M3 14.5A1.5 1.5 0 0 1 1.5 13V3A1.5 1.5 0 0 1 3 1.5h8a.5.5 0 0 1 0 1H3a.5.5 0 0 0-.5.5v10a.5.5 0 0 0 .5.5h10a.5.5 0 0 0 .5-.5V8a.5.5 0 0 1 1 0v5a1.5 1.5 0 0 1-1.5 1.5H3z"/>
-                                <path d="m8.354 10.354 7-7a.5.5 0 0 0-.708-.708L8 9.293 5.354 6.646a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0z"/>
-                            </svg></a> <a href="#Modal"  class="text-reset" data-bs-toggle="modal"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-tools" viewBox="0 0 16 16">
-                                <path d="M1 0 0 1l2.2 3.081a1 1 0 0 0 .815.419h.07a1 1 0 0 1 .708.293l2.675 2.675-2.617 2.654A3.003 3.003 0 0 0 0 13a3 3 0 1 0 5.878-.851l2.654-2.617.968.968-.305.914a1 1 0 0 0 .242 1.023l3.356 3.356a1 1 0 0 0 1.414 0l1.586-1.586a1 1 0 0 0 0-1.414l-3.356-3.356a1 1 0 0 0-1.023-.242L10.5 9.5l-.96-.96 2.68-2.643A3.005 3.005 0 0 0 16 3c0-.269-.035-.53-.102-.777l-2.14 2.141L12 4l-.364-1.757L13.777.102a3 3 0 0 0-3.675 3.68L7.462 6.46 4.793 3.793a1 1 0 0 1-.293-.707v-.071a1 1 0 0 0-.419-.814L1 0zm9.646 10.646a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708zM3 11l.471.242.529.026.287.445.445.287.026.529L5 13l-.242.471-.026.529-.445.287-.287.445-.529.026L3 15l-.471-.242L2 14.732l-.287-.445L1.268 14l-.026-.529L1 13l.242-.471.026-.529.445-.287.287-.445.529-.026L3 11z"/>
-                            </svg></a></td>
+                            <!--완료버튼 및 수정버튼-->
+                            <td class="text-center"><a href="#" class="text-reset me-2" data-rol="{{No}}"
+                                                       id="iscompletebtn">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                     class="bi bi-check2-square" viewBox="0 0 16 16">
+                                    <path d="M3 14.5A1.5 1.5 0 0 1 1.5 13V3A1.5 1.5 0 0 1 3 1.5h8a.5.5 0 0 1 0 1H3a.5.5 0 0 0-.5.5v10a.5.5 0 0 0 .5.5h10a.5.5 0 0 0 .5-.5V8a.5.5 0 0 1 1 0v5a1.5 1.5 0 0 1-1.5 1.5H3z"/>
+                                    <path d="m8.354 10.354 7-7a.5.5 0 0 0-.708-.708L8 9.293 5.354 6.646a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0z"/>
+                                </svg>
+                            </a><a href="#" id="btnmodal" data-bs-target="#Modal" data-rol="{{title}},{{whatToDo}},{{whenToDo}},{{howLongToDo}}"
+                                   data-bs-whatever="{{No}}" class="text-reset ms-2" data-bs-toggle="modal">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                     class="bi bi-tools" viewBox="0 0 16 16">
+                                    <path d="M1 0 0 1l2.2 3.081a1 1 0 0 0 .815.419h.07a1 1 0 0 1 .708.293l2.675 2.675-2.617 2.654A3.003 3.003 0 0 0 0 13a3 3 0 1 0 5.878-.851l2.654-2.617.968.968-.305.914a1 1 0 0 0 .242 1.023l3.356 3.356a1 1 0 0 0 1.414 0l1.586-1.586a1 1 0 0 0 0-1.414l-3.356-3.356a1 1 0 0 0-1.023-.242L10.5 9.5l-.96-.96 2.68-2.643A3.005 3.005 0 0 0 16 3c0-.269-.035-.53-.102-.777l-2.14 2.141L12 4l-.364-1.757L13.777.102a3 3 0 0 0-3.675 3.68L7.462 6.46 4.793 3.793a1 1 0 0 1-.293-.707v-.071a1 1 0 0 0-.419-.814L1 0zm9.646 10.646a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708zM3 11l.471.242.529.026.287.445.445.287.026.529L5 13l-.242.471-.026.529-.445.287-.287.445-.529.026L3 15l-.471-.242L2 14.732l-.287-.445L1.268 14l-.026-.529L1 13l.242-.471.026-.529.445-.287.287-.445.529-.026L3 11z"/>
+                                </svg>
+                            </a></td>
 
-                            <td class="text-center"  data-rol="{{whatToDo}}"><a href="#" data-bs-toggle="tooltip" data-bs-placement="top" title="{{whatToDo}}">{{title}}</td>
-                            <td class="text-center" id="whentodo">{{whenToDo}}</td>
-                            <td class="text-center" data-rol="{{howLongToDo}}">{{expectedTime}}</td>
-                            <td class="text-center" >{{ModityTime}}</td>
+                            <td class="text-center"><a href="#" data-bs-toggle="tooltip" data-bs-placement="top"
+                                                       title="{{whatToDo}}">{{title}}</td>
+                            <td class="text-center">{{whenToDo}}</td>
+                            <td class="text-center">{{expectedTime}}</td>
+                            <td class="text-center">{{ModityTime}}</td>
                             <td class="text-center" id="iscomplete">{{isComplete}}</td>
-                            <td class="text-center "><a href="#" class="text-reset" id="deletebtn"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-backspace" viewBox="0 0 16 16">
-                                <path d="M5.83 5.146a.5.5 0 0 0 0 .708L7.975 8l-2.147 2.146a.5.5 0 0 0 .707.708l2.147-2.147 2.146 2.147a.5.5 0 0 0 .707-.708L9.39 8l2.146-2.146a.5.5 0 0 0-.707-.708L8.683 7.293 6.536 5.146a.5.5 0 0 0-.707 0z"/>
-                                <path d="M13.683 1a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-7.08a2 2 0 0 1-1.519-.698L.241 8.65a1 1 0 0 1 0-1.302L5.084 1.7A2 2 0 0 1 6.603 1h7.08zm-7.08 1a1 1 0 0 0-.76.35L1 8l4.844 5.65a1 1 0 0 0 .759.35h7.08a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1h-7.08z"/>
-                            </svg></a></td>
+                            <td class="text-center"><a href="#" data-rol="{{No}}" class="text-reset" id="deletebtn">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                     class="bi bi-backspace" viewBox="0 0 16 16">
+                                    <path d="M5.83 5.146a.5.5 0 0 0 0 .708L7.975 8l-2.147 2.146a.5.5 0 0 0 .707.708l2.147-2.147 2.146 2.147a.5.5 0 0 0 .707-.708L9.39 8l2.146-2.146a.5.5 0 0 0-.707-.708L8.683 7.293 6.536 5.146a.5.5 0 0 0-.707 0z"/>
+                                    <path d="M13.683 1a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-7.08a2 2 0 0 1-1.519-.698L.241 8.65a1 1 0 0 1 0-1.302L5.084 1.7A2 2 0 0 1 6.603 1h7.08zm-7.08 1a1 1 0 0 0-.76.35L1 8l4.844 5.65a1 1 0 0 0 .759.35h7.08a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1h-7.08z"/>
+                                </svg>
+                            </a></td>
                         </tr>
                     {{/posts}}
                     </tbody>
@@ -111,7 +124,8 @@
         </nav>
     </div>
 
-    <div class="modal fade" id="Modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal fade" id="Modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+         aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
             <div class="modal-content">
                 <div class="modal-header">
@@ -122,48 +136,33 @@
                     <div class="container">
                         <form class="my-3 p-4 border border-light rounded bg-light">
                             <div class="my-3">
-                                <label for="No" class="col-sm-3 col-sm-3 control-label">등록 번호</label>
-                                <input type="text" class="form-control" id="No" value="{{!posts.No}}" readonly>
+                                <label for="No" class="col-sm-3 col-md-3 control-label"><strong>등록 번호</strong></label>
+                                <input type="text" class="form-control form-control-sm " id="No" value="" readonly>
                                 <!--읽기전용으로 하자-->
                             </div>
 
                             <div class="mb-3">
                                 <label for="title" class="col-sm-3 col-md-3 col-form-label"><strong>제목</strong></label>
-                                <input type="text" id="title" class="form-control form-control-sm" placeholder="대략적인 제목을 달아주세요.(10자 이내)" required>
+                                <input type="text" id="title" class="form-control form-control-sm"
+                                       placeholder="대략적인 제목을 달아주세요.(10자 이내)" required>
                             </div>
                             <div class="mb-3">
                                 <label for="whatToDo" class="col-sm-3 col-md-3 col-form-label"><strong>구체적인 내용</strong></label>
-                                <textarea  rows="5" id="whatToDo" class="form-control form-control-sm" placeholder="뭘 하실것인지 구체적으로 적어주세요.(50자 이내)"></textarea>
+                                <textarea rows="5" id="whatToDo" class="form-control form-control-sm"
+                                          placeholder="뭘 하실것인지 구체적으로 적어주세요.(50자 이내)"></textarea>
                             </div>
                             <div class="mb-3">
-                                <lebel for="whenToDo" class="col-sm-3 col-md-3 col-form-label"><strong>시작 시간</strong></lebel>
+                                <lebel for="whenToDo" class="col-sm-3 col-md-3 col-form-label"><strong>시작 시간</strong>
+                                </lebel>
                                 <input type="time" id="whenToDo" class="form-control form-control-sm" required>
 
                             </div>
                             <div class="mb-3">
-                                <label for="howLongToDo" class="col-sm-3 col-md-3 col-form-label"><strong>예상 소요 시간</strong></label>
+                                <label for="howLongToDo" class="col-sm-3 col-md-3 col-form-label"><strong>예상 소요
+                                    시간</strong></label>
                                 <select id="howLongToDo" class="form-select form-select-sm">
-<!--                                    <script>-->
-<!--                                        var select = document.querySelector("#howLongToDo");-->
-<!--                                        // console.dir(select);-->
-
-<!--                                        for (let i = 1; i < {{!posts.howLongToDo}}; i++) {-->
-<!--                                            let option = document.createElement("option");-->
-<!--                                            option.textContent = i;-->
-<!--                                            select.appendChild(option);-->
-<!--                                        }-->
-<!--                                        let selectedoption = document.createElement("option");-->
-<!--                                        selectedoption.setAttribute("selected", true);-->
-<!--                                        selectedoption.setAttribute("disabled", true);-->
-<!--                                        selectedoption.textContent = {{!posts.howLongToDo}};-->
-<!--                                        select.appendChild(selectedoption);-->
-<!--                                        for (let i = ({{!posts.howLongToDo}} +1); i <= 24; i++) {-->
-<!--                                            let option = document.createElement("option");-->
-<!--                                            option.textContent = i;-->
-<!--                                            select.appendChild(option);-->
-<!--                                        }-->
-
-<!--                                    </script>-->
+                                    <script>
+                                    </script>
                                 </select>
                             </div>
                         </form>
@@ -171,7 +170,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary" id="btn-revise">수정하기</button>
+                    <button type="button" class="btn btn-primary" id="update-btn">수정하기</button>
                 </div>
             </div>
         </div>
@@ -179,27 +178,10 @@
 
 
 </div>
-<script>
-    var myModal = document.getElementById('Modal');
-
-
-    myModal.addEventListener('shown.bs.modal', function (evnet) {
-        return event.preventDefault();
-    })
-
-
-    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
-    var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
-        return new bootstrap.Tooltip(tooltipTriggerEl)
-    })
-
-</script>
-
-<script src="/js/bootstrap.js"></script>
 <script src="/js/list.js"></script>
-<script src="/js/update.js"></script>
 <script src="/js/delete.js"></script>
 <script src="/js/iscomplete.js"></script>
+<script src="/js/bootstrap.js"></script>
 
 </body>
 </html>

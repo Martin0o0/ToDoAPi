@@ -1,20 +1,17 @@
-
-var btn_complete = document.querySelector("#complete");
+var btn_complete = document.querySelector("#iscompletebtn");
 
 btn_complete.addEventListener('click', function (event) {
-    event.preventDefault();
-    let _No = document.querySelector("#No");
-
+    let _No = this.dataset.rol;
     data = {
-        No : _No.value,
+        No : _No,
         isComplete : true
     }
 
-    console.log(_No.value);
+    console.log(_No);
 
     var xhr = new XMLHttpRequest();
     /* Post 방식으로 요청 */
-    let url = '/api/put/complete/' + _No.value;
+    let url = '/api/put/complete/' + _No;
     console.log(url);
     xhr.open('PUT', url , true);
     /* Response Type을 Json으로 사전 정의 */
