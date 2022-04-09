@@ -1,7 +1,6 @@
-package com.example.todolistapi.dto;
+package com.example.todolistwar.dto;
 
-
-import com.example.todolistapi.PostRepository.Posts;
+import com.example.todolistwar.PostRepository.Posts;
 import lombok.Getter;
 
 import java.time.LocalTime;

@@ -1,21 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <title>ToDoList-등록항목 살펴보기</title>
-
-    <link rel="stylesheet" href="/css/bootstrap.min.css">
-    <script src="/js/bootstrap.bundle.min.js"></script>
-    <style>
-        .containerbox {
-            height: 500px;
-        }
-    </style>
-</head>
-<body>
+{{>layout/header1}}
 <div class="container-fluid">
     <header>
         <div class="container">
@@ -66,15 +49,15 @@
                     {{#posts}}
                         <tr data-rol="{{No}}">
                             <!--완료버튼 및 수정버튼-->
-                            <td class="text-center"><a href="#" class="text-reset me-2" data-rol="{{No}}"
-                                                       id="iscompletebtn">
+                            <td class="text-center"><a href="#" class="text-reset mx-1" data-rol="{{No}}"
+                                                       id="cmpbtn">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                      class="bi bi-check2-square" viewBox="0 0 16 16">
                                     <path d="M3 14.5A1.5 1.5 0 0 1 1.5 13V3A1.5 1.5 0 0 1 3 1.5h8a.5.5 0 0 1 0 1H3a.5.5 0 0 0-.5.5v10a.5.5 0 0 0 .5.5h10a.5.5 0 0 0 .5-.5V8a.5.5 0 0 1 1 0v5a1.5 1.5 0 0 1-1.5 1.5H3z"/>
                                     <path d="m8.354 10.354 7-7a.5.5 0 0 0-.708-.708L8 9.293 5.354 6.646a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0z"/>
                                 </svg>
                             </a><a href="#" id="btnmodal" data-bs-target="#Modal" data-rol="{{title}},{{whatToDo}},{{whenToDo}},{{howLongToDo}}"
-                                   data-bs-whatever="{{No}}" class="text-reset ms-2" data-bs-toggle="modal">
+                                   data-bs-whatever="{{No}}" class="text-reset mx-1" data-bs-toggle="modal">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                      class="bi bi-tools" viewBox="0 0 16 16">
                                     <path d="M1 0 0 1l2.2 3.081a1 1 0 0 0 .815.419h.07a1 1 0 0 1 .708.293l2.675 2.675-2.617 2.654A3.003 3.003 0 0 0 0 13a3 3 0 1 0 5.878-.851l2.654-2.617.968.968-.305.914a1 1 0 0 0 .242 1.023l3.356 3.356a1 1 0 0 0 1.414 0l1.586-1.586a1 1 0 0 0 0-1.414l-3.356-3.356a1 1 0 0 0-1.023-.242L10.5 9.5l-.96-.96 2.68-2.643A3.005 3.005 0 0 0 16 3c0-.269-.035-.53-.102-.777l-2.14 2.141L12 4l-.364-1.757L13.777.102a3 3 0 0 0-3.675 3.68L7.462 6.46 4.793 3.793a1 1 0 0 1-.293-.707v-.071a1 1 0 0 0-.419-.814L1 0zm9.646 10.646a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708zM3 11l.471.242.529.026.287.445.445.287.026.529L5 13l-.242.471-.026.529-.445.287-.287.445-.529.026L3 15l-.471-.242L2 14.732l-.287-.445L1.268 14l-.026-.529L1 13l.242-.471.026-.529.445-.287.287-.445.529-.026L3 11z"/>
@@ -161,8 +144,31 @@
                                 <label for="howLongToDo" class="col-sm-3 col-md-3 col-form-label"><strong>예상 소요
                                     시간</strong></label>
                                 <select id="howLongToDo" class="form-select form-select-sm">
-                                    <script>
-                                    </script>
+                                    <option selected disabled></option>
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                    <option>5</option>
+                                    <option>6</option>
+                                    <option>7</option>
+                                    <option>8</option>
+                                    <option>9</option>
+                                    <option>10</option>
+                                    <option>11</option>
+                                    <option>12</option>
+                                    <option>13</option>
+                                    <option>14</option>
+                                    <option>15</option>
+                                    <option>16</option>
+                                    <option>17</option>
+                                    <option>18</option>
+                                    <option>19</option>
+                                    <option>20</option>
+                                    <option>21</option>
+                                    <option>22</option>
+                                    <option>23</option>
+                                    <option>24</option>
                                 </select>
                             </div>
                         </form>
@@ -178,10 +184,7 @@
 
 
 </div>
-<script src="/js/list.js"></script>
-<script src="/js/delete.js"></script>
-<script src="/js/iscomplete.js"></script>
-<script src="/js/bootstrap.js"></script>
 
-</body>
-</html>
+{{>layout/footer1}}
+
+

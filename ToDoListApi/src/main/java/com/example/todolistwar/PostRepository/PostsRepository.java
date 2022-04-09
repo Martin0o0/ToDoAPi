@@ -1,13 +1,8 @@
-package com.example.todolistapi.PostRepository;
+package com.example.todolistwar.PostRepository;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Modifying;
-import org.springframework.data.jpa.repository.Query;
-
-import java.util.ArrayList;
-import java.util.List;
 
 
 //연결할 Entity클래스와 기본키 타입 할당.

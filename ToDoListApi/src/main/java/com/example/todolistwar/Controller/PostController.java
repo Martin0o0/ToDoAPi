@@ -1,17 +1,12 @@
-package com.example.todolistapi.Controller;
+package com.example.todolistwar.Controller;
 
-
-import com.example.todolistapi.Service.PostService;
-import com.example.todolistapi.dto.PostListDto;
-import com.example.todolistapi.dto.PostSaveDto;
-import com.example.todolistapi.dto.PostUpdateDto;
-import com.example.todolistapi.dto.PostUpdateIsCompleteDto;
+import com.example.todolistwar.Service.PostService;
+import com.example.todolistwar.dto.PostSaveDto;
+import com.example.todolistwar.dto.PostUpdateDto;
+import com.example.todolistwar.dto.PostUpdateIsCompleteDto;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
-import javax.persistence.PostUpdate;
 
 @Slf4j
 @RestController

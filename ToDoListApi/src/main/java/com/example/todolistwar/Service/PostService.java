@@ -1,23 +1,19 @@
-package com.example.todolistapi.Service;
+package com.example.todolistwar.Service;
 
 
-import com.example.todolistapi.PostRepository.Posts;
-import com.example.todolistapi.PostRepository.PostsRepository;
-import com.example.todolistapi.dto.PostListDto;
-import com.example.todolistapi.dto.PostSaveDto;
-import com.example.todolistapi.dto.PostUpdateDto;
-import com.example.todolistapi.dto.PostUpdateIsCompleteDto;
-import lombok.RequiredArgsConstructor;
+
+import com.example.todolistwar.PostRepository.Posts;
+import com.example.todolistwar.PostRepository.PostsRepository;
+import com.example.todolistwar.dto.PostListDto;
+import com.example.todolistwar.dto.PostSaveDto;
+import com.example.todolistwar.dto.PostUpdateDto;
+import com.example.todolistwar.dto.PostUpdateIsCompleteDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 //@RequiredArgsConstructor //생성자 알아서 생성
 @Service //PostSaveDto의 toEntity함수를 Repository를 통해 h2데이터베이스에 접근하도록 시키자.

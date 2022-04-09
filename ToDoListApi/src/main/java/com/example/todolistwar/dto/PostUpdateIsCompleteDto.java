@@ -1,4 +1,4 @@
-package com.example.todolistapi.dto;
+package com.example.todolistwar.dto;
 
 import lombok.Builder;
 import lombok.Getter;

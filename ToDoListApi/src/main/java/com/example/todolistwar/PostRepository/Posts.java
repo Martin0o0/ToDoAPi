@@ -1,11 +1,13 @@
-package com.example.todolistapi.PostRepository;
+package com.example.todolistwar.PostRepository;
 
 
-import com.example.todolistapi.TimeEntity.TimeEntity;
-import lombok.*;
+import com.example.todolistwar.TimeEntity.TimeEntity;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.*;
-import java.lang.annotation.Target;
 import java.time.LocalTime;
 
 
