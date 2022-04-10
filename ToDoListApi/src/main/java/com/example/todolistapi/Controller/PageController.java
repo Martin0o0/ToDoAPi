@@ -113,13 +113,6 @@ public class PageController {
 출처: https://dev-coco.tistory.com/114?category=1032063 [슬기로운 개발생활😃]
      */
 
-//    @GetMapping("/api/get/{No}")
-//    public String update(@PathVariable Long No, Model model) {
-//        PostListDto Dto = postService.findByNo(No);
-//        model.addAttribute("posts", Dto);
-//
-//        return "testput";
-//    }
 
 
 

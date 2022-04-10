@@ -13,6 +13,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.TransactionScoped;
 import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.List;
@@ -71,6 +72,7 @@ public class PostService {
         return list;
     }
 
+
     @Transactional
     public Page<Posts> isComplete(Boolean isComplete, Pageable pageable){
         Page<Posts> list = postsRepository.findByIsComplete(isComplete, pageable);
@@ -99,7 +101,23 @@ public class PostService {
     }
 
 
+    @Transactional
+    public List<PostListDto> findbyComplete(){
+        List<PostListDto> list = postsRepository.findByIsComplete(true).stream().map(dto -> new PostListDto(dto)).collect(Collectors.toList());
+        return list;
+    }
 
+    @Transactional
+    public List<PostListDto> findbyNotComplete(){
+        List<PostListDto> list = postsRepository.findByIsComplete(false).stream().map(dto -> new PostListDto(dto)).collect(Collectors.toList());
+        return list;
+    }
+
+    @Transactional
+    public List<PostListDto> findbysearchlist(String key){
+        List<PostListDto> list = postsRepository.findByTitleContaining(key).stream().map(dto -> new PostListDto(dto)).collect(Collectors.toList());
+        return list;
+    }
 
 
 }

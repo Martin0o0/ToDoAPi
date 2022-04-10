@@ -1,5 +1,6 @@
 package com.example.todolistapi.PostRepository;
 
+import com.example.todolistapi.dto.PostListDto;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -19,7 +20,11 @@ public interface PostsRepository extends JpaRepository<Posts, Long> {
 
     Page<Posts> findByTitleContaining(String keyword, Pageable pageable); //Title이라는 컬럼에서, 키값을 포함하는 것들을 찾아서 리스트로 반환.
 
+    List<Posts> findByTitleContaining(String keyword); //Json객체로 반환.
+
     Page<Posts> findByIsComplete(Boolean isComplete, Pageable pageable); //완료되었는지를 찾아서 페이지로 반환.
+
+    List<Posts> findByIsComplete(Boolean istrue);
 
 
 

@@ -25,17 +25,17 @@ public class PostController {
 
     @PostMapping("/post")
     public String save(@RequestBody PostSaveDto postSaveDto) {
+//
+//
+//        log.info(postSaveDto.getTitle());
+//
+//        log.info(postSaveDto.getWhatToDo());
+//
+//        log.info(postSaveDto.getWhatToDo());
+//
+//        log.info(postSaveDto.getHowLongToDo().toString());
 
-
-        log.info(postSaveDto.getTitle());
-
-        log.info(postSaveDto.getWhatToDo());
-
-        log.info(postSaveDto.getWhatToDo());
-
-        log.info(postSaveDto.getHowLongToDo().toString());
-
-        return "추가된 등록번호" + Long.toString(postService.save(postSaveDto));
+        return "추가된 등록번호 " + Long.toString(postService.save(postSaveDto));
 
     }
 
@@ -63,5 +63,20 @@ public class PostController {
     @GetMapping("/get")
     public List<PostListDto> findbyAll(){
         return postService.findByAll();
+    }
+
+    @GetMapping("/get/searchlist/{key}")
+    public List<PostListDto> findBySearchwithkey(@PathVariable String key){
+        return postService.findbysearchlist(key);
+    }
+
+    @GetMapping("/get/completelist")
+    public List<PostListDto> findByCompletelist(){
+        return postService.findbyComplete();
+    }
+
+    @GetMapping("/get/notcompletelist")
+    public List<PostListDto> findByNotCompletelist(){
+        return postService.findbyNotComplete();
     }
 }
