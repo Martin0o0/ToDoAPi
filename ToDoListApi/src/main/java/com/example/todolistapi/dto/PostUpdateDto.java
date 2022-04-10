@@ -1,4 +1,4 @@
-package com.example.todolistwar.dto;
+package com.example.todolistapi.dto;
 
 
 import lombok.Builder;
@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import javax.persistence.PostUpdate;
 import java.time.LocalTime;
 
 @Getter

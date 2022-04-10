@@ -1,6 +1,6 @@
-package com.example.todolistwar.dto;
+package com.example.todolistapi.dto;
 
-import com.example.todolistwar.PostRepository.Posts;
+import com.example.todolistapi.PostRepository.Posts;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

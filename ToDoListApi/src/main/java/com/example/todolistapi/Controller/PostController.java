@@ -1,12 +1,18 @@
-package com.example.todolistwar.Controller;
+package com.example.todolistapi.Controller;
 
-import com.example.todolistwar.Service.PostService;
-import com.example.todolistwar.dto.PostSaveDto;
-import com.example.todolistwar.dto.PostUpdateDto;
-import com.example.todolistwar.dto.PostUpdateIsCompleteDto;
+
+import com.example.todolistapi.Service.PostService;
+import com.example.todolistapi.dto.PostListDto;
+import com.example.todolistapi.dto.PostSaveDto;
+import com.example.todolistapi.dto.PostUpdateDto;
+import com.example.todolistapi.dto.PostUpdateIsCompleteDto;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import javax.persistence.PostUpdate;
+import java.util.List;
 
 @Slf4j
 @RestController
@@ -18,7 +24,7 @@ public class PostController {
 
 
     @PostMapping("/post")
-    public Long save(@RequestBody PostSaveDto postSaveDto) {
+    public String save(@RequestBody PostSaveDto postSaveDto) {
 
 
         log.info(postSaveDto.getTitle());
@@ -29,7 +35,7 @@ public class PostController {
 
         log.info(postSaveDto.getHowLongToDo().toString());
 
-        return postService.save(postSaveDto);
+        return "추가된 등록번호" + Long.toString(postService.save(postSaveDto));
 
     }
 
@@ -49,11 +55,13 @@ public class PostController {
         return postService.delete(No);
     }
 
+    @GetMapping("/get/{No}")
+    public PostListDto findByNo(@PathVariable Long No) {
+        return postService.findByNo(No);
+    }
 
-//
-//    @GetMapping("/get/{No}")
-//    public PostListDto findByNo(@PathVariable Long No) {
-//        return postService.findByNo(No);
-//    }
-
+    @GetMapping("/get")
+    public List<PostListDto> findbyAll(){
+        return postService.findByAll();
+    }
 }

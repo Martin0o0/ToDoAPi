@@ -1,19 +1,23 @@
-package com.example.todolistwar.Service;
+package com.example.todolistapi.Service;
 
 
-
-import com.example.todolistwar.PostRepository.Posts;
-import com.example.todolistwar.PostRepository.PostsRepository;
-import com.example.todolistwar.dto.PostListDto;
-import com.example.todolistwar.dto.PostSaveDto;
-import com.example.todolistwar.dto.PostUpdateDto;
-import com.example.todolistwar.dto.PostUpdateIsCompleteDto;
+import com.example.todolistapi.PostRepository.Posts;
+import com.example.todolistapi.PostRepository.PostsRepository;
+import com.example.todolistapi.dto.PostListDto;
+import com.example.todolistapi.dto.PostSaveDto;
+import com.example.todolistapi.dto.PostUpdateDto;
+import com.example.todolistapi.dto.PostUpdateIsCompleteDto;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 //@RequiredArgsConstructor //생성자 알아서 생성
 @Service //PostSaveDto의 toEntity함수를 Repository를 통해 h2데이터베이스에 접근하도록 시키자.
@@ -23,6 +27,7 @@ public class PostService {
     public PostService(PostsRepository postsRepository){
         this.postsRepository = postsRepository;
     }
+
     @Transactional //트랜잭션 발동!
     public Long save(PostSaveDto requestDto){
         return postsRepository.save(requestDto.toEntity()).getNo();
@@ -38,7 +43,13 @@ public class PostService {
     @Transactional
     public Long updateComplete(Long No, PostUpdateIsCompleteDto postUpdateIsCompleteDto){
         Posts posts = postsRepository.findById(No).orElseThrow(() -> new IllegalArgumentException("해당하는 게시글이 없다. "));
-        posts.updateComplete(postUpdateIsCompleteDto.getIsComplete());
+
+        if(postUpdateIsCompleteDto.getIsComplete() == null){
+            posts.updateComplete(true);
+        }
+        else{
+            posts.updateComplete(postUpdateIsCompleteDto.getIsComplete());
+        }
         return No;
     }
 
@@ -82,8 +93,14 @@ public class PostService {
         return new PostListDto(entity);
     }
 
+    @Transactional
+    public List<PostListDto> findByAll(){
+        return postsRepository.findAll().stream().map(dto -> new PostListDto(dto)).collect(Collectors.toList());
+    }
+
 
 
 
 
 }
+
