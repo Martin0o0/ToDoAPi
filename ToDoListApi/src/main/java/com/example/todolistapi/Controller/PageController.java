@@ -45,7 +45,7 @@ public class PageController {
 
 
     @GetMapping("/todolist/search")
-    public String ToDoListSearch(String key, Model model, @PageableDefault(sort="No", direction = Sort.Direction.ASC) Pageable pageable) {
+    public String ToDoListSearch(String key, Model model, @PageableDefault(sort="whenToDo", direction = Sort.Direction.ASC) Pageable pageable) {
         log.info(key);
         //머스테치에 객체를 보내주기 위해 가인수로 받자., PageableDefault로  No값으로 정렬 받고, direction으로 오름차순 정렬
         Page<Posts> list = postService.search(key, pageable);
@@ -64,7 +64,7 @@ public class PageController {
 
 
     @GetMapping("/todolist/complete")
-    public String ToDoListComplete(Model model, @PageableDefault(sort="No", direction = Sort.Direction.ASC) Pageable pageable) {
+    public String ToDoListComplete(Model model, @PageableDefault(sort="whenToDo", direction = Sort.Direction.ASC) Pageable pageable) {
         //머스테치에 객체를 보내주기 위해 가인수로 받자., PageableDefault로  No값으로 정렬 받고, direction으로 오름차순 정렬
         Page<Posts> list = postService.isComplete(true, pageable);
 
@@ -81,7 +81,7 @@ public class PageController {
         return "TodoListComplete";
     }
     @GetMapping("/todolist/not-complete")
-    public String ToDoListNotComplete(Model model, @PageableDefault(sort="No", direction = Sort.Direction.ASC) Pageable pageable) {
+    public String ToDoListNotComplete(Model model, @PageableDefault(sort="whenToDo", direction = Sort.Direction.ASC) Pageable pageable) {
         //머스테치에 객체를 보내주기 위해 가인수로 받자., PageableDefault로  No값으로 정렬 받고, direction으로 오름차순 정렬
         Page<Posts> list = postService.isComplete(false, pageable);
 

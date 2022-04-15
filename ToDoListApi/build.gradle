@@ -1,5 +1,5 @@
 plugins {
-    id 'org.springframework.boot' version '2.6.4'
+    id 'org.springframework.boot' version '2.5.2'
     id 'io.spring.dependency-management' version '1.0.11.RELEASE'
     id 'java'
 }
@@ -12,7 +12,14 @@ repositories {
     mavenCentral()
 }
 
+ext {
+    swagger2Version = '2.9.2'
+    oldSwagger2Version = '1.5.21'
+}
+
 dependencies {
+    testRuntimeOnly("org.junit.platform:junit-platform-launcher:1.8.2")
+    testRuntimeOnly("org.junit.jupiter:junit-jupiter:5.8.2")
     implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.2.2'
     implementation 'org.springframework.boot:spring-boot-starter-data-jdbc'
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
@@ -24,15 +31,30 @@ dependencies {
     testImplementation 'org.projectlombok:lombok'
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
     //runtimeOnly 'com.h2database:h2'
-    //providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
     implementation 'javax.servlet:jstl'
     implementation 'org.apache.tomcat.embed:tomcat-embed-jasper'
     implementation 'org.springframework.boot:spring-boot-starter-mustache'
     implementation 'mysql:mysql-connector-java'
+    //implementation group: 'io.springfox', name: 'springfox-boot-starter', version: '3.0.0'
+    /*--------------------------[ Swagger 2 ]--------------------------------*/
+    // Swagger2 내부 라이브러리 이슈로 인한 Annotatios과 Models 과거 버전으로 사용
+    //implementation 'io.springfox:springfox-swagger2:2.9.2'
+    implementation 'io.springfox:springfox-swagger-ui:2.9.2'
+
+    implementation("io.springfox:springfox-swagger2:${swagger2Version}") {
+        exclude group: 'io.swagger', module: 'swagger-annotations'
+        exclude group: 'io.swagger', module: 'swagger-models'
+    }
+
+    implementation "io.swagger:swagger-annotations:${oldSwagger2Version}"
+    implementation "io.swagger:swagger-models:${oldSwagger2Version}"
+
 }
 
-tasks.named('test') {
-    useJUnitPlatform()
+
+
+test {
+useJUnitPlatform()
 }

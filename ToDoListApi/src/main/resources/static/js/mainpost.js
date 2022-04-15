@@ -11,6 +11,9 @@ document.querySelector("#title").addEventListener("input", function(){
     if(inputtitle.length == 0){
         isTitleValid = false;
     }
+    else if(inputtitle.length > 10 ){
+        isTitleValid = false;
+    }
     else{
         isTitleValid = true;
     }

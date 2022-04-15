@@ -1,6 +1,8 @@
 package com.example.todolistapi.dto;
 
 import com.example.todolistapi.PostRepository.Posts;
+//import io.swagger.annotations.ApiModelProperty;
+import io.swagger.annotations.ApiModelProperty;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -14,9 +16,13 @@ import java.time.LocalTime;
 @NoArgsConstructor
 public class PostSaveDto {
 
+    @ApiModelProperty(value = "제목", example = "today is ..", required = true)
     private String title;
+    @ApiModelProperty(value = "상세내용", example = "I'm going to ..", required = true)
     private String whatToDo;
+    @ApiModelProperty(value = "시작시간", example = "00:01", required = true)
     private LocalTime whenToDo;
+    @ApiModelProperty(value = "소요시간", example = "1~24", required = true)
     private Integer howLongToDo;
 
 

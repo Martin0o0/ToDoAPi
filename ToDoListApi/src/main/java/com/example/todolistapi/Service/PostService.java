@@ -20,14 +20,10 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-//@RequiredArgsConstructor //생성자 알아서 생성
+@RequiredArgsConstructor //생성자 알아서 생성
 @Service //PostSaveDto의 toEntity함수를 Repository를 통해 h2데이터베이스에 접근하도록 시키자.
 public class PostService {
     private final PostsRepository postsRepository;
-    @Autowired
-    public PostService(PostsRepository postsRepository){
-        this.postsRepository = postsRepository;
-    }
 
     @Transactional //트랜잭션 발동!
     public Long save(PostSaveDto requestDto){
