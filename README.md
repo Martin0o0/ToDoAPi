@@ -33,40 +33,50 @@
 
 ## ERD
 
-![Untitled Diagram.drawio.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/bcca9b66-f4e7-48b7-be50-319b93876733/Untitled_Diagram.drawio.png)
+![Untitled Diagram drawio](https://user-images.githubusercontent.com/62254434/200816027-2daaf93b-b8d5-4508-8ae3-10f0fffe9e27.png)
 
-![스크린샷 2022-04-11 13.15.33.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/05ef21fa-9503-43da-a9ec-99f64a3ad592/스크린샷_2022-04-11_13.15.33.png)
+
+<img width="664" alt="스크린샷 2022-04-11 13 15 33" src="https://user-images.githubusercontent.com/62254434/200815987-d3242f4f-eb96-4fc2-b26c-1e2726d28dfd.png">
+
 
 ## API Doc.(swagger2)
 
-![스크린샷 2022-04-16 16.10.50.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/092a9bd0-c8d9-43c4-844d-7037a72a3ff5/스크린샷_2022-04-16_16.10.50.png)
+<img width="1680" alt="스크린샷 2022-04-16 16 10 50" src="https://user-images.githubusercontent.com/62254434/200816073-959fbd11-688b-49ec-a629-5c53a44972a4.png">
+
 
 ## 기능 시연
 
 1. 등록
     
-    ![등록.gif](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/c262ae92-f109-4244-b0fc-dfb7d23ee3df/등록.gif)
+    ![등록](https://user-images.githubusercontent.com/62254434/200816103-773a4a5f-87d7-4e3a-b822-01a66abbd8cb.gif)
+
     
 
-1. 수정
+2. 수정
+
+    ![수정](https://user-images.githubusercontent.com/62254434/200816191-5d35da4e-1485-40d7-8a7a-c2d0e20a9d3a.gif)
+
     
-    ![수정.gif](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/01cff94d-7e0a-4fe8-8b90-394ae5e70697/수정.gif)
     
-2. 완료여부 수정
+3. 완료여부 수정
     
-    ![완료여부.gif](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/ef522237-6a15-4f48-8ac7-30803d971d94/완료여부.gif)
+    ![완료여부](https://user-images.githubusercontent.com/62254434/200816256-f0c97ad9-71de-4d4d-8a01-9182f8f2b639.gif)
+
     
-3. 조회
+4. 조회
     
-    ![조회.gif](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/74257706-fdc4-484b-8354-4136c080f204/조회.gif)
+   ![조회](https://user-images.githubusercontent.com/62254434/200816313-8d316d3c-393b-4c48-b180-db2eb698d1ed.gif)
+
     
-4. 검색
+5. 검색
     
-    ![검색.gif](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/14f2b1f5-c7a2-452b-8615-27caf2249f8e/검색.gif)
+   ![검색](https://user-images.githubusercontent.com/62254434/200816366-686dcd7d-6d14-4474-8cc3-63e383752e22.gif)
+
     
-5. 삭제
+6. 삭제
     
-    ![삭제.gif](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/b0d2e0ea-2f9d-4fe1-9cbe-d7123772dec8/삭제.gif)
+    ![삭제](https://user-images.githubusercontent.com/62254434/200816401-32f5bd96-e98d-441b-8b10-d2daedda869b.gif)
+
     
 
 ## 개발노트
